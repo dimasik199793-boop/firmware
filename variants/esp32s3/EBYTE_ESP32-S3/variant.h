@@ -138,7 +138,7 @@
 // FIXME: change behavior in src to default to not having screen if is undefined
 // FIXME: remove 0/1 option for HAS_SCREEN in src, change to being defined or not
 // FIXME: check if it actually causes a crash when not specifiying that a display isn't present
-#define HAS_SCREEN 0 // Assume no screen present by default to prevent crash...
+#define HAS_SCREEN 1 // Assume no screen present by default to prevent crash...
 
 // GPS
 // FIXME: unsure what to define HAS_GPS as if GPS isn't always present
