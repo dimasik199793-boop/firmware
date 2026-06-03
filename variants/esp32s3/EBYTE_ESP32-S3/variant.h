@@ -62,11 +62,11 @@
 // Option 1: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to NEGATED output of E22's DIO2 pin (more
 // expensive option hardware-wise, is the 'most proper' way, removes need for routing one/two traces from MCU to RF switching
 // pins), however you can't have E22 in low-power 'sleep' mode (TXEN and RXEN both low cannot be achieved this this option).
-/*
+
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
 #define SX126X_RXEN RADIOLIB_NC
-*/
+
 
 // Option 2: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise,
 // removes need for routing another trace from MCU to an RF switching pin).
@@ -81,10 +81,10 @@
 // Don't define DIO2_AS_RF_SWITCH because we only use DIO2 or an MCU pin mutually exclusively to connect to E22's TXEN (to prevent
 // a short if they are both connected at the same time (suboptimal PCB design) and there's a slight non-neglibible delay and/or
 // voltage difference between DIO2 and TXEN). Can use DIO2 as an IRQ (but not in Meshtastic at the moment).
-
+/*
 #define SX126X_TXEN 4
 #define SX126X_RXEN 2
-
+*/
 
 // (NOT RECOMMENDED, if need to ramp up PA before transmission, better to use option 3)
 // Option 4: E22's TXEN pin connected to MCU pin, E22's RXEN pin connected to NEGATED output of E22's DIO2 pin (more expensive
