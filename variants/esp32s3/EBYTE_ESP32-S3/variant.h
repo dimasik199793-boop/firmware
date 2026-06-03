@@ -35,13 +35,13 @@
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
 
-#define SX126X_CS 10    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
-#define LORA_SCK 12     // EBYTE module's SCK pin
-#define LORA_MOSI 11    // EBYTE module's MOSI pin
-#define LORA_MISO 13    // EBYTE module's MISO pin
-#define SX126X_RESET 5 // EBYTE module's NRST pin
-#define SX126X_BUSY 14  // EBYTE module's BUSY pin
-#define SX126X_DIO1 1  // EBYTE module's DIO1 pin
+#define SX126X_CS 14    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
+#define LORA_SCK 21     // EBYTE module's SCK pin
+#define LORA_MOSI 38    // EBYTE module's MOSI pin
+#define LORA_MISO 39    // EBYTE module's MISO pin
+#define SX126X_RESET 40 // EBYTE module's NRST pin
+#define SX126X_BUSY 41  // EBYTE module's BUSY pin
+#define SX126X_DIO1 42  // EBYTE module's DIO1 pin
 // We don't define a pin for SX126X_DIO2 as Meshtastic doesn't use it as an interrupt output, so it is never connected to an MCU
 // pin! Also E22 module datasheets say not to connect it to an MCU pin.
 // We don't define a pin for SX126X_DIO3 as Meshtastic doesn't use it as an interrupt output, so it is never connected to an MCU
@@ -62,19 +62,19 @@
 // Option 1: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to NEGATED output of E22's DIO2 pin (more
 // expensive option hardware-wise, is the 'most proper' way, removes need for routing one/two traces from MCU to RF switching
 // pins), however you can't have E22 in low-power 'sleep' mode (TXEN and RXEN both low cannot be achieved this this option).
-
-#define SX126X_DIO2_AS_RF_SWITCH
-#define SX126X_TXEN RADIOLIB_NC
-#define SX126X_RXEN RADIOLIB_NC
-
-
-// Option 2: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise,
-// removes need for routing another trace from MCU to an RF switching pin).
 /*
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
-#define SX126X_RXEN 2
+#define SX126X_RXEN RADIOLIB_NC
 */
+
+// Option 2: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise,
+// removes need for routing another trace from MCU to an RF switching pin).
+
+#define SX126X_DIO2_AS_RF_SWITCH
+#define SX126X_TXEN RADIOLIB_NC
+#define SX126X_RXEN 2
+
 
 // Option 3: E22's TXEN pin connected to MCU pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise, allows for
 // ramping up PA before transmission (add/expand on feature yourself in RadioLib) if PA takes a while to stabilise)
