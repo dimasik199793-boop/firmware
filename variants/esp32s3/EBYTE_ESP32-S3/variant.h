@@ -172,7 +172,7 @@ being defined but having no value #if (!defined(E22_RXEN) || !(0 <= E22_RXEN && 
 // E22 series TCXO voltage is 1.8V per https://www.ebyte.com/en/pdf-down.aspx?id=781 (source
 // https://github.com/jgromes/RadioLib/issues/12#issuecomment-520695575), so set it as such
 #define SX126X_DIO3_TCXO_VOLTAGE 1.8
-
+#define LORA_DIO3_AS_TCXO true
 #define LORA_CS SX126X_CS // FIXME: for some reason both are used in /src
 
 // Many of the below values would only be used if USE_RF95 was defined, but it's not as we aren't actually using an RF95, just
